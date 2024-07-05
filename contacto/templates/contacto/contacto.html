@@ -1,0 +1,28 @@
+{% extends "ProyectoTiendaApp/base.html" %}
+  
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="contenedorFormulario" style="width: 50%;">
+
+  {% if "valido" in request.GET %}
+
+    <p>Información enviada correctamente, gracias.</p>
+
+  {% endif %}
+
+  <form action="" method="POST" style="text-align: left;">
+    {% csrf_token %}
+    <h4 style="text-align:center">Contáctanos</h4>
+    <table style="margin: 20px auto;">{{miFormulario|crispy}}</table>
+    <div style="text-align: center">
+      <input type="submit" class="btn btn-warning" value="Enviar" style="width: 300px;">
+    </div>
+  </form>
+  
+</div>
+
+{% endblock %}

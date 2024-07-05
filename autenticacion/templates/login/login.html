@@ -1,0 +1,29 @@
+{% extends "ProyectoTiendaApp/base.html" %}
+  
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="contenedorFormulario" style="width: 300px;">
+
+    <form method="POST" action="" >
+
+        {% csrf_token %}
+        
+        {% if messages %}
+            {% for mensaje in messages %}
+                <h5 style="text-align: center; text-decoration-color: blue;">{{ mensaje }}</h5>
+            {% endfor %}
+        {% endif %}
+
+        <h4 style="text-align:center">Log in</h4>
+        <table style="margin: 20px auto;">{{form|crispy}}</table>
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-warning" style="width: 50%;">Login</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
